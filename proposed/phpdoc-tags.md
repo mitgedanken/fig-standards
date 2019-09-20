@@ -1,5 +1,4 @@
-PSR-19: PHPDoc tags
-=============
+# PSR-19: PHPDoc tags
 
 ## Table Of Contents
 
@@ -14,15 +13,15 @@ PSR-19: PHPDoc tags
     - [4.3.2. Function Or Method](#432-function-or-method)
     - [4.3.3. Constant Or Property](#433-constant-or-property)
 - [5. Tags](#5-tags)
-  - [5.1.  @api](#51-api)
-  - [5.2.  @author](#52-author)
-  - [5.3.  @copyright](#53-copyright)
-  - [5.4.  @deprecated](#54-deprecated)
-  - [5.5.  @internal](#55-internal)
-  - [5.6.  @link](#56-link)
-  - [5.7.  @method](#57-method)
-  - [5.8.  @package](#58-package)
-  - [5.9.  @param](#59-param)
+  - [5.1. @api](#51-api)
+  - [5.2. @author](#52-author)
+  - [5.3. @copyright](#53-copyright)
+  - [5.4. @deprecated](#54-deprecated)
+  - [5.5. @internal](#55-internal)
+  - [5.6. @link](#56-link)
+  - [5.7. @method](#57-method)
+  - [5.8. @package](#58-package)
+  - [5.9. @param](#59-param)
   - [5.10. @property](#510-property)
   - [5.11. @return](#511-return)
   - [5.12. @see](#512-see)
@@ -35,13 +34,13 @@ PSR-19: PHPDoc tags
 
 ## 1. Introduction
 
-The main purpose of this PSR is to provide a complete catalog of Tags in
-the [PHPDoc standard][PHPDOC_PSR].
+The main purpose of this PSR is to provide a complete catalog of Tags in the
+[PHPDoc standard][phpdoc_psr].
 
 This document SHALL NOT:
 
-* Describe a catalog of Annotations.
-* Describe best practices or recommendations for Coding Standards on the
+- Describe a catalog of Annotations.
+- Describe best practices or recommendations for Coding Standards on the
   application of the PHPDoc standard. This document is limited to a formal
   specification of syntax and intention.
 
@@ -49,12 +48,12 @@ This document SHALL NOT:
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
 "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be
-interpreted as described in [RFC 2119][RFC2119].
+interpreted as described in [RFC 2119][rfc2119].
 
 ## 3. Definitions
 
-See the Definitions section of the [PHPDoc PSR][PHPDOC_PSR], as those definitions
-apply here as well.
+See the Definitions section of the [PHPDoc PSR][phpdoc_psr], as those
+definitions apply here as well.
 
 ## 4. Regarding Inheritance
 
@@ -66,32 +65,30 @@ implemented, extended or overridden.
 The PHPDoc for every type of "Structural Element" MUST inherit the following
 parts if that part is absent:
 
-* [Summary]([PHPDOC_PSR]#51-summary)
-* [Description]([PHPDOC_PSR]#52-description) and
-* A specific subset of [Tags]([PHPDOC_PSR]#53-tags):
-  * [@author](#52-author)
-  * [@copyright](#53-copyright)
-  * [@version](#518-version)
+- [Summary]([PHPDOC_PSR]#51-summary)
+- [Description]([PHPDOC_PSR]#52-description) and
+- A specific subset of [Tags]([PHPDOC_PSR]#53-tags):
+  - [@author](#52-author)
+  - [@copyright](#53-copyright)
+  - [@version](#518-version)
 
-The PHPDoc for each type of "Structural Element" MUST also inherit a
-specialized subset of tags depending on which "Structural Element" is
-associated.
+The PHPDoc for each type of "Structural Element" MUST also inherit a specialized
+subset of tags depending on which "Structural Element" is associated.
 
 If a PHPDoc does not feature a part, such as Summary or Description, that is
 present in the PHPDoc of a super-element, then that part is always implicitly
-inherited.
-The following is a list of all elements whose DocBlocks are able to inherit
-information from a super-element's DocBlock:
+inherited. The following is a list of all elements whose DocBlocks are able to
+inherit information from a super-element's DocBlock:
 
 1. a Class' or Interface's DocBlock can inherit information from a Class or
    Interface which it extends.
 2. a Property's DocBlock can inherit information from a Property with the same
    name that is declared in a superclass.
-3. a Method's DocBlock can inherit information from a Method with the same
-   name that is declared in a superclass.
-4. a Method's DocBlock can inherit information from a Method with the same
-   name that is declared in an implemented interface in the current Class
-   or that is implemented in a superclass.
+3. a Method's DocBlock can inherit information from a Method with the same name
+   that is declared in a superclass.
+4. a Method's DocBlock can inherit information from a Method with the same name
+   that is declared in an implemented interface in the current Class or that is
+   implemented in a superclass.
 
 > For example:
 >
@@ -99,25 +96,24 @@ information from a super-element's DocBlock:
 > `\SubClass` extends the class `\SuperClass`. And in the class `\SuperClass`
 > there is a method with the same name (e.g. `\SuperClass::myMethod`).
 >
-> If the above applies then the DocBlock of `\SubClass::myMethod()` will
-> inherit any of the parts mentioned above from the PHPDoc of
-> `\SuperClass::myMethod`. So if the `@version` tag was not redefined then it
-> is assumed that `\SubClass::myMethod()` will have the same `@version`
-> tag.
+> If the above applies then the DocBlock of `\SubClass::myMethod()` will inherit
+> any of the parts mentioned above from the PHPDoc of `\SuperClass::myMethod`.
+> So if the `@version` tag was not redefined then it is assumed that
+> `\SubClass::myMethod()` will have the same `@version` tag.
 
 Inheritance takes place from the root of a class hierarchy graph to its leafs.
-This means that anything inherited in the bottom of the tree MUST 'bubble' up
-to the top unless overridden.
+This means that anything inherited in the bottom of the tree MUST 'bubble' up to
+the top unless overridden.
 
 ## 4.1. Making inheritance explicit using the @inheritDoc tag
 
 Because inheritance is implicit it may happen that it is not necessary to
-include a PHPDoc with a "Structural Element". This can cause confusion as it
-is now ambiguous whether the PHPDoc was omitted on purpose or whether the
-author of the code had forgotten to add documentation.
+include a PHPDoc with a "Structural Element". This can cause confusion as it is
+now ambiguous whether the PHPDoc was omitted on purpose or whether the author of
+the code had forgotten to add documentation.
 
-In order to resolve this ambiguity the `@inheritDoc` tag can be used to
-indicate that this element will inherit its information from a super-element.
+In order to resolve this ambiguity the `@inheritDoc` tag can be used to indicate
+that this element will inherit its information from a super-element.
 
 Example:
 
@@ -170,23 +166,24 @@ combination of the Description of the super-element, indicated by the
 In addition to the inherited descriptions and tags as defined in this chapter's
 root, a class or interface MUST inherit the following tags:
 
-* [@package](#58-package)
+- [@package](#58-package)
 
 ### 4.3.2. Function Or Method
 
 In addition to the inherited descriptions and tags as defined in this chapter's
-root, a function or method in a class or interface MUST inherit the following tags:
+root, a function or method in a class or interface MUST inherit the following
+tags:
 
-* [@param](#59-param)
-* [@return](#511-return)
-* [@throws](#514-throws)
+- [@param](#59-param)
+- [@return](#511-return)
+- [@throws](#514-throws)
 
 ### 4.3.3. Constant Or Property
 
 In addition to the inherited descriptions and tags as defined in this chapter's
 root, a constant or property in a class MUST inherit the following tags:
 
-* [@var](#517-type)
+- [@var](#517-type)
 
 ## 5. Tags
 
@@ -204,15 +201,15 @@ primary public API of a package.
 
 #### Description
 
-The `@api` tag MAY be applied to public "Structural Elements" to highlight
-them in generated documentation, pointing the consumer to the primary public
-API components of a library or framework.
+The `@api` tag MAY be applied to public "Structural Elements" to highlight them
+in generated documentation, pointing the consumer to the primary public API
+components of a library or framework.
 
 Other "Structural Elements" with a public visibility MAY be listed less
 prominently in generated documentation.
 
-See also the [`@internal`](#55-internal), which MAY be used to hide internal
-API components from generated documentation.
+See also the [`@internal`](#55-internal), which MAY be used to hide internal API
+components from generated documentation.
 
 #### Examples
 
@@ -220,7 +217,7 @@ API components from generated documentation.
 class UserService
 {
     /**
-     * This method is public-API. 
+     * This method is public-API.
      *
      * @api
      */
@@ -250,10 +247,10 @@ The @author tag is used to document the author of any "Structural Element".
 #### Description
 
 The @author tag can be used to indicate who has created a "Structural Element"
-or has made significant modifications to it. This tag MAY also contain an
-e-mail address. If an e-mail address is provided it MUST follow
-the author's name and be contained in chevrons, or angle brackets, and MUST
-adhere to the syntax defined in RFC 2822.
+or has made significant modifications to it. This tag MAY also contain an e-mail
+address. If an e-mail address is provided it MUST follow the author's name and
+be contained in chevrons, or angle brackets, and MUST adhere to the syntax
+defined in RFC 2822.
 
 #### Examples
 
@@ -275,9 +272,9 @@ The @copyright tag is used to document the copyright information of any
 
 #### Description
 
-The @copyright tag defines who holds the copyright over the "Structural Element".
-The copyright indicated with this tag applies to the "Structural Element" to
-which it applies and all child elements unless otherwise noted.
+The @copyright tag defines who holds the copyright over the "Structural
+Element". The copyright indicated with this tag applies to the "Structural
+Element" to which it applies and all child elements unless otherwise noted.
 
 The format of the description is governed by the coding standard of each
 individual project. It is RECOMMENDED to mention the year or years which are
@@ -302,9 +299,9 @@ deprecated and are to be removed in a future version.
 
 #### Description
 
-The @deprecated tag declares that the associated 'Structural elements' will
-be removed in a future version as it has become obsolete or its usage is
-otherwise not recommended, effective from the "Semantic Version" if provided.
+The @deprecated tag declares that the associated 'Structural elements' will be
+removed in a future version as it has become obsolete or its usage is otherwise
+not recommended, effective from the "Semantic Version" if provided.
 
 This tag MAY provide an additional description stating why the associated
 element is deprecated.
@@ -330,8 +327,8 @@ If the associated element is superseded by another it is RECOMMENDED to add a
 
 The @internal tag is used to denote that the associated "Structural Element" is
 a structure internal to this application or library. It may also be used inside
-a description to insert a piece of text that is only applicable for
-the developers of this software.
+a description to insert a piece of text that is only applicable for the
+developers of this software.
 
 #### Syntax
 
@@ -346,23 +343,25 @@ other inline tags (see second example below).
 
 #### Description
 
-The `@internal` tag indicates that the associated "Structural Element" is intended
-only for use within the application, library or package to which it belongs.
+The `@internal` tag indicates that the associated "Structural Element" is
+intended only for use within the application, library or package to which it
+belongs.
 
-Authors MAY use this tag to indicate that an element with public visibility should
-be regarded as exempt from the API - for example:
-  * Library authors MAY regard breaking changes to internal elements as being exempt
-    from semantic versioning.
-  * Static analysis tools MAY indicate the use of internal elements from another
-    library/package with a warning or notice.
+Authors MAY use this tag to indicate that an element with public visibility
+should be regarded as exempt from the API - for example:
+
+- Library authors MAY regard breaking changes to internal elements as being
+  exempt from semantic versioning.
+- Static analysis tools MAY indicate the use of internal elements from another
+  library/package with a warning or notice.
 
 When generating documentation from PHPDoc comments it is RECOMMENDED to hide the
-associated element unless the user has explicitly indicated that internal elements
-should be included.
+associated element unless the user has explicitly indicated that internal
+elements should be included.
 
 An additional use of @internal is to add internal comments or additional
-description text inline to the Description. This may be done, for example,
-to withhold certain business-critical or confusing information when generating
+description text inline to the Description. This may be done, for example, to
+withhold certain business-critical or confusing information when generating
 documentation from the source code of this piece of software.
 
 #### Examples
@@ -388,7 +387,7 @@ Include a note in the Description that only Developer Docs would show.
  * Counts the number of Foo.
  *
  * This method gets a count of the Foo.
- * {@internal Developers should note that it silently 
+ * {@internal Developers should note that it silently
  *            adds one extra Foo (see {@link http://example.com}).}
  *
  * @return int Indicates the number of items.
@@ -401,8 +400,8 @@ function count()
 
 ### 5.6. @link
 
-The @link tag indicates a custom relation between the associated
-"Structural Element" and a website, which is identified by an absolute URI.
+The @link tag indicates a custom relation between the associated "Structural
+Element" and a website, which is identified by an absolute URI.
 
 #### Syntax
 
@@ -414,10 +413,10 @@ or inline
 
 #### Description
 
-The @link tag can be used to define a relation, or link, between the
-"Structural Element", or part of the description when used inline, to an URI.
+The @link tag can be used to define a relation, or link, between the "Structural
+Element", or part of the description when used inline, to an URI.
 
-The URI MUST be complete and well-formed as specified in [RFC 2396][RFC2396].
+The URI MUST be complete and well-formed as specified in [RFC 2396][rfc2396].
 
 The @link tag MAY have a description appended to indicate the type of relation
 defined by this occurrence.
@@ -462,11 +461,11 @@ The @method allows a class to know which 'magic' methods are callable.
 The @method tag is used in situation where a class contains the `__call()` magic
 method and defines some definite uses.
 
-An example of this is a child class whose parent has a `__call()` to have dynamic
-getters or setters for predefined properties. The child knows which getters and
-setters need to be present but relies on the parent class to use the `__call()`
-method to provide it. In this situation, the child class would have a @method
-tag for each magic setter or getter method.
+An example of this is a child class whose parent has a `__call()` to have
+dynamic getters or setters for predefined properties. The child knows which
+getters and setters need to be present but relies on the parent class to use the
+`__call()` method to provide it. In this situation, the child class would have a
+@method tag for each magic setter or getter method.
 
 The @method tag allows the author to communicate the type of the arguments and
 return value by including those types in the signature.
@@ -474,8 +473,8 @@ return value by including those types in the signature.
 When the intended method does not have a return value then the return type MAY
 be omitted; in which case 'void' is implied.
 
-@method tags can ONLY be used in a PHPDoc that is associated with a
-*class* or *interface*.
+@method tags can ONLY be used in a PHPDoc that is associated with a _class_ or
+_interface_.
 
 #### Examples
 
@@ -512,14 +511,14 @@ subdivisions.
 
 The @package tag can be used as a counterpart or supplement to Namespaces.
 Namespaces provide a functional subdivision of "Structural Elements" where the
-@package tag can provide a *logical* subdivision in which way the elements can
+@package tag can provide a _logical_ subdivision in which way the elements can
 be grouped with a different hierarchy.
 
-If, across the board, both logical and functional subdivisions are equal it
-is NOT RECOMMENDED to use the @package tag, to prevent maintenance overhead.
+If, across the board, both logical and functional subdivisions are equal it is
+NOT RECOMMENDED to use the @package tag, to prevent maintenance overhead.
 
-Each level in the logical hierarchy MUST separated with a backslash (`\`) to
-be familiar to Namespaces. A hierarchy MAY be of endless depth but it is
+Each level in the logical hierarchy MUST separated with a backslash (`\`) to be
+familiar to Namespaces. A hierarchy MAY be of endless depth but it is
 RECOMMENDED to keep the depth at less or equal than six levels.
 
 The package applies to that namespace, class or interface and their contained
@@ -546,11 +545,11 @@ The @param tag is used to document a single parameter of a function or method.
 
 #### Description
 
-With the @param tag it is possible to document the type and function of a
-single parameter of a function or method. When provided it MUST contain a
-"Type" to indicate what is expected. The "name" is required only when some
-@param tags are omitted due to all useful info already being visible in the
-code signature itself. The description is OPTIONAL yet RECOMMENDED.
+With the @param tag it is possible to document the type and function of a single
+parameter of a function or method. When provided it MUST contain a "Type" to
+indicate what is expected. The "name" is required only when some @param tags are
+omitted due to all useful info already being visible in the code signature
+itself. The description is OPTIONAL yet RECOMMENDED.
 
 The @param tag MAY have a multi-line description and does not need explicit
 delimiting.
@@ -590,16 +589,16 @@ The `@property` tag is used to declare which "magic" properties are supported.
 The `@property` tag is used when a `class` (or `trait`) implements the `__get()`
 and/or `__set()` "magic" methods to resolve non-literal properties at run-time.
 
-The `@property-read` and `@property-write` variants MAY be used to indicate "magic"
-properties that can only be read or written.
+The `@property-read` and `@property-write` variants MAY be used to indicate
+"magic" properties that can only be read or written.
 
 The `@property` tags can ONLY be used in a PHPDoc that is associated with a
-*class* or *trait*.
+_class_ or _trait_.
 
 #### Example
 
-In the following example, a class `User` implements the magic `__get()` method, in
-order to implement a "magic", read-only `$full_name` property:
+In the following example, a class `User` implements the magic `__get()` method,
+in order to implement a "magic", read-only `$full_name` property:
 
 ```php
 /**
@@ -636,21 +635,21 @@ The @return tag is used to document the return value of functions or methods.
 
 #### Description
 
-With the @return tag it is possible to document the return type of a
-function or method. When provided, it MUST contain a "Type"
-to indicate what is returned; the description on the other hand is OPTIONAL yet
-RECOMMENDED in case of complicated return structures, such as associative arrays.
+With the @return tag it is possible to document the return type of a function or
+method. When provided, it MUST contain a "Type" to indicate what is returned;
+the description on the other hand is OPTIONAL yet RECOMMENDED in case of
+complicated return structures, such as associative arrays.
 
 The @return tag MAY have a multi-line description and does not need explicit
 delimiting.
 
-It is RECOMMENDED to use this tag with every function and method. An exception to
-this recommendation, as defined by the Coding Standard of any individual project,
-MAY be:
+It is RECOMMENDED to use this tag with every function and method. An exception
+to this recommendation, as defined by the Coding Standard of any individual
+project, MAY be:
 
-   **functions and methods without a `return` value**: the @return tag MAY be
-   omitted here, in which case an interpreter MUST interpret this as if
-   `@return void` is provided.
+**functions and methods without a `return` value**: the @return tag MAY be
+omitted here, in which case an interpreter MUST interpret this as if
+`@return void` is provided.
 
 This tag MUST NOT occur more than once in a "DocBlock" and is limited to the
 "DocBlock" of a "Structural Element" of a method or function.
@@ -686,14 +685,14 @@ a website or other "Structural Elements".
 
 #### Description
 
-The @see tag can be used to define a reference to other "Structural Elements"
-or to a URI.
+The @see tag can be used to define a reference to other "Structural Elements" or
+to a URI.
 
 When defining a reference to another "Structural Elements" you can refer to a
 specific element by appending a double colon and providing the name of that
 element (also called the "FQSEN").
 
-A URI MUST be complete and well-formed as specified in [RFC 2396][RFC2396].
+A URI MUST be complete and well-formed as specified in [RFC 2396][rfc2396].
 
 The @see tag SHOULD have a description to provide additional information
 regarding the relationship between the element and its target. Additionally, the
@@ -730,8 +729,8 @@ using some description of "versioning" to that element.
 
 Documents the "version" of the introduction or modification of any element.
 
-It is RECOMMENDED that the version matches a semantic version number (x.x.x)
-and MAY have a description to provide additional information.
+It is RECOMMENDED that the version matches a semantic version number (x.x.x) and
+MAY have a description to provide additional information.
 
 This information can be used to generate a set of API Documentation where the
 consumer is informed which application version is necessary for a specific
@@ -781,7 +780,8 @@ specific type of Throwable (exception or error).
 The @throws tag MAY be used to indicate that "Structural Elements" throw a
 specific type of error.
 
-The type provided with this tag MUST represent an object that is a subtype of Throwable.
+The type provided with this tag MUST represent an object that is a subtype of
+Throwable.
 
 This tag is used to present in your documentation which error COULD occur and
 under which circumstances. It is RECOMMENDED to provide a description that
@@ -822,8 +822,8 @@ still be executed on associated "Structural Elements".
 #### Description
 
 The @todo tag is used to indicate that an activity surrounding the associated
-"Structural Elements" must still occur. Each tag MUST be accompanied by
-a description that communicates the intent of the original author; this could
+"Structural Elements" must still occur. Each tag MUST be accompanied by a
+description that communicates the intent of the original author; this could
 however be as short as providing an issue number.
 
 #### Examples
@@ -844,8 +844,8 @@ function count()
 
 ### 5.16. @uses
 
-Indicates whether the current "Structural Element" consumes the
-"Structural Element", or project file, that is provided as target.
+Indicates whether the current "Structural Element" consumes the "Structural
+Element", or project file, that is provided as target.
 
 #### Syntax
 
@@ -853,17 +853,17 @@ Indicates whether the current "Structural Element" consumes the
 
 #### Description
 
-The `@uses` tag describes whether any part of the associated "Structural Element"
-uses, or consumes, another "Structural Element" or a file that is situated in
-the current project.
+The `@uses` tag describes whether any part of the associated "Structural
+Element" uses, or consumes, another "Structural Element" or a file that is
+situated in the current project.
 
 When defining a reference to another "Structural Element" you can refer to a
 specific element by appending a double colon and providing the name of that
 element (also called the "FQSEN").
 
 Files that are contained in this project can be referred to by this tag. This
-can be used, for example, to indicate a relationship between a Controller and
-a template file (as View).
+can be used, for example, to indicate a relationship between a Controller and a
+template file (as View).
 
 This tag MUST NOT be used to indicate relations to elements outside of the
 system, so URLs are not usable. To indicate relations with outside elements the
@@ -897,12 +897,12 @@ function executeMyView()
 
 ### 5.17. @var
 
-You may use the @var tag to document the "Type" of the following
-"Structural Elements":
+You may use the @var tag to document the "Type" of the following "Structural
+Elements":
 
-* Constants, both class and global scope
-* Properties
-* Variables, both global and local scope
+- Constants, both class and global scope
+- Properties
+- Variables, both global and local scope
 
 #### Syntax
 
@@ -910,20 +910,20 @@ You may use the @var tag to document the "Type" of the following
 
 #### Description
 
-The @var tag defines which type of data is represented by a value of a
-Constant, Property or Variable.
+The @var tag defines which type of data is represented by a value of a Constant,
+Property or Variable.
 
-Each Constant or Property definition or Variable where the type is ambiguous
-or unknown SHOULD be preceded by a DocBlock containing the @var tag. Any
-other variable MAY be preceded with a DocBlock containing the @var tag.
+Each Constant or Property definition or Variable where the type is ambiguous or
+unknown SHOULD be preceded by a DocBlock containing the @var tag. Any other
+variable MAY be preceded with a DocBlock containing the @var tag.
 
-The @var tag MUST contain the name of the element it documents. An exception
-to this is when property declarations only refer to a single property. In this
-case the name of the property MAY be omitted.
+The @var tag MUST contain the name of the element it documents. An exception to
+this is when property declarations only refer to a single property. In this case
+the name of the property MAY be omitted.
 
 This is used when compound statements are used to define a series of Constants
-or Properties. Such a compound statement can only have one DocBlock while several
-items are represented.
+or Properties. Such a compound statement can only have one DocBlock while
+several items are represented.
 
 #### Examples
 
@@ -1016,7 +1016,7 @@ This information can be used to generate a set of API Documentation where the
 consumer is informed about elements at a particular version.
 
 It is RECOMMENDED that the version number matches a semantic version number as
-described in the [Semantic Versioning Standard version 2.0][SEMVER2].
+described in the [Semantic Versioning Standard version 2.0][semver2].
 
 Version vectors from Version Control Systems are also supported, though they
 MUST follow the form:
@@ -1051,10 +1051,10 @@ class Foo
 }
 ```
 
-
-[RFC2119]:      https://tools.ietf.org/html/rfc2119
-[RFC2396]:      https://tools.ietf.org/html/rfc2396
-[SEMVER2]:      http://www.semver.org
-[PHP_SUBSTR]:   https://php.net/manual/function.substr.php
-[SPDX]:         https://www.spdx.org/licenses
-[PHPDOC_PSR]:   https://github.com/php-fig/fig-standards/blob/master/proposed/phpdoc.md
+[rfc2119]: https://tools.ietf.org/html/rfc2119
+[rfc2396]: https://tools.ietf.org/html/rfc2396
+[semver2]: http://www.semver.org
+[php_substr]: https://php.net/manual/function.substr.php
+[spdx]: https://www.spdx.org/licenses
+[phpdoc_psr]:
+  https://github.com/php-fig/fig-standards/blob/master/proposed/phpdoc.md

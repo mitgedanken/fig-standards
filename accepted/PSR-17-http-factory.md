@@ -1,12 +1,11 @@
-HTTP Factories
-==============
+# HTTP Factories
 
-This document describes a common standard for factories that create [PSR-7][psr7]
-compliant HTTP objects.
+This document describes a common standard for factories that create
+[PSR-7][psr7] compliant HTTP objects.
 
-PSR-7 did not include a recommendation on how to create HTTP objects, which leads
-to difficulties when needing to create new HTTP objects within components that are
-not tied to a specific implementation of PSR-7.
+PSR-7 did not include a recommendation on how to create HTTP objects, which
+leads to difficulties when needing to create new HTTP objects within components
+that are not tied to a specific implementation of PSR-7.
 
 The interfaces outlined in this document describe methods by which PSR-7 objects
 can be instantiated.
@@ -20,14 +19,14 @@ interpreted as described in [RFC 2119][rfc2119].
 
 ## 1. Specification
 
-An HTTP factory is a method by which a new HTTP object, as defined by PSR-7,
-is created. HTTP factories MUST implement these interfaces for each object type
+An HTTP factory is a method by which a new HTTP object, as defined by PSR-7, is
+created. HTTP factories MUST implement these interfaces for each object type
 that is provided by the package.
 
 ## 2. Interfaces
 
-The following interfaces MAY be implemented together within a single class or
-in separate classes.
+The following interfaces MAY be implemented together within a single class or in
+separate classes.
 
 ### 2.1 RequestFactoryInterface
 
@@ -45,7 +44,7 @@ interface RequestFactoryInterface
      * Create a new request.
      *
      * @param string $method The HTTP method associated with the request.
-     * @param UriInterface|string $uri The URI associated with the request. 
+     * @param UriInterface|string $uri The URI associated with the request.
      */
     public function createRequest(string $method, $uri): RequestInterface;
 }
@@ -94,7 +93,7 @@ interface ServerRequestFactoryInterface
      * determine the HTTP method or URI, which must be provided explicitly.
      *
      * @param string $method The HTTP method associated with the request.
-     * @param UriInterface|string $uri The URI associated with the request. 
+     * @param UriInterface|string $uri The URI associated with the request.
      * @param array $serverParams An array of Server API (SAPI) parameters with
      *     which to seed the generated request instance.
      */

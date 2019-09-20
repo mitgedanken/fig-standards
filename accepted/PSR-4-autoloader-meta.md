@@ -4,18 +4,18 @@
 
 The purpose is to specify the rules for an interoperable PHP autoloader that
 maps namespaces to file system paths, and that can co-exist with any other SPL
-registered autoloader.  This would be an addition to, not a replacement for,
+registered autoloader. This would be an addition to, not a replacement for,
 PSR-0.
 
 ## 2. Why Bother?
 
 ### History of PSR-0
 
-The PSR-0 class naming and autoloading standard rose out of the broad
-acceptance of the Horde/PEAR convention under the constraints of PHP 5.2 and
-previous. With that convention, the tendency was to put all PHP source classes
-in a single main directory, using underscores in the class name to indicate
-pseudo-namespaces, like so:
+The PSR-0 class naming and autoloading standard rose out of the broad acceptance
+of the Horde/PEAR convention under the constraints of PHP 5.2 and previous. With
+that convention, the tendency was to put all PHP source classes in a single main
+directory, using underscores in the class name to indicate pseudo-namespaces,
+like so:
 
     /path/to/src/
         VendorFoo/
@@ -25,11 +25,11 @@ pseudo-namespaces, like so:
             Zim/
                 Gir.php     # Vendor_Dib_Zim_Gir
 
-With the release of PHP 5.3 and the availability of namespaces proper, PSR-0
-was introduced to allow both the old Horde/PEAR underscore mode *and* the use
-of the new namespace notation. Underscores were still allowed in the class
-name to ease the transition from the older namespace naming to the newer naming,
-and thereby to encourage wider adoption.
+With the release of PHP 5.3 and the availability of namespaces proper, PSR-0 was
+introduced to allow both the old Horde/PEAR underscore mode _and_ the use of the
+new namespace notation. Underscores were still allowed in the class name to ease
+the transition from the older namespace naming to the newer naming, and thereby
+to encourage wider adoption.
 
     /path/to/src/
         VendorFoo/
@@ -48,14 +48,14 @@ source files from PEAR packages into a single central directory.
 
 ### Along Comes Composer
 
-With Composer, package sources are no longer copied to a single global
-location. They are used from their installed location and are not moved
-around. This means that with Composer there is no "single main directory" for
-PHP sources as with PEAR. Instead, there are multiple directories; each
-package is in a separate directory for each project.
+With Composer, package sources are no longer copied to a single global location.
+They are used from their installed location and are not moved around. This means
+that with Composer there is no "single main directory" for PHP sources as with
+PEAR. Instead, there are multiple directories; each package is in a separate
+directory for each project.
 
-To meet the requirements of PSR-0, this leads to Composer packages looking
-like this:
+To meet the requirements of PSR-0, this leads to Composer packages looking like
+this:
 
     vendor/
         vendor_name/
@@ -73,8 +73,8 @@ The "src" and "tests" directories have to include vendor and package directory
 names. This is an artifact of PSR-0 compliance.
 
 Many find this structure to be deeper and more repetitive than necessary. This
-proposal suggests that an additional or superseding PSR would be useful so
-that we can have packages that look more like the following:
+proposal suggests that an additional or superseding PSR would be useful so that
+we can have packages that look more like the following:
 
     vendor/
         vendor_name/
@@ -99,23 +99,23 @@ would allow for cleaner packages.
 Initially, the following rules were suggested:
 
 1. Implementors MUST use at least two namespace levels: a vendor name, and
-package name within that vendor. (This top-level two-name combination is
-hereinafter referred to as the vendor-package name or the vendor-package
-namespace.)
+   package name within that vendor. (This top-level two-name combination is
+   hereinafter referred to as the vendor-package name or the vendor-package
+   namespace.)
 
-2. Implementors MUST allow a path infix between the vendor-package namespace
-and the remainder of the fully qualified class name.
+2. Implementors MUST allow a path infix between the vendor-package namespace and
+   the remainder of the fully qualified class name.
 
-3. The vendor-package namespace MAY map to any directory. The remaining
-portion of the fully-qualified class name MUST map the namespace names to
-identically-named directories, and MUST map the class name to an
-identically-named file ending in .php.
+3. The vendor-package namespace MAY map to any directory. The remaining portion
+   of the fully-qualified class name MUST map the namespace names to
+   identically-named directories, and MUST map the class name to an
+   identically-named file ending in .php.
 
 Note that this means the end of underscore-as-directory-separator in the class
-name. One might think underscores should be honored as they are under
-PSR-0, but seeing as their presence in that document is in reference to
-transitioning away from PHP 5.2 and previous pseudo-namespacing, it is
-acceptable to remove them here as well.
+name. One might think underscores should be honored as they are under PSR-0, but
+seeing as their presence in that document is in reference to transitioning away
+from PHP 5.2 and previous pseudo-namespacing, it is acceptable to remove them
+here as well.
 
 ## 3. Scope
 
@@ -127,8 +127,8 @@ acceptable to remove them here as well.
 - Allow a path infix between the vendor-package namespace and the remainder of
   the fully qualified class name.
 
-- Allow the vendor-package namespace MAY map to any directory, perhaps
-  multiple directories.
+- Allow the vendor-package namespace MAY map to any directory, perhaps multiple
+  directories.
 
 - End the honoring of underscores in class names as directory separators
 
@@ -140,24 +140,24 @@ acceptable to remove them here as well.
 
 ### 4.1 Chosen Approach
 
-This approach retains key characteristics of PSR-0 while eliminating the
-deeper directory structures it requires. In addition, it specifies certain
-additional rules that make implementations explicitly more interoperable.
+This approach retains key characteristics of PSR-0 while eliminating the deeper
+directory structures it requires. In addition, it specifies certain additional
+rules that make implementations explicitly more interoperable.
 
 Although not related to directory mapping, the final draft also specifies how
-autoloaders should handle errors.  Specifically, it forbids throwing exceptions
-or raising errors.  The reason is two-fold.
+autoloaders should handle errors. Specifically, it forbids throwing exceptions
+or raising errors. The reason is two-fold.
 
 1. Autoloaders in PHP are explicitly designed to be stackable so that if one
-autoloader cannot load a class another has a chance to do so. Having an autoloader
-trigger a breaking error condition violates that compatibility.
+   autoloader cannot load a class another has a chance to do so. Having an
+   autoloader trigger a breaking error condition violates that compatibility.
 
-2. `class_exists()` and `interface_exists()` allow "not found, even after trying to
-autoload" as a legitimate, normal use case. An autoloader that throws exceptions
-renders `class_exists()` unusable, which is entirely unacceptable from an interoperability
-standpoint.  Autoloaders that wish to provide additional debugging information
-in a class-not-found case should do so via logging instead, either to a PSR-3
-compatible logger or otherwise.
+2. `class_exists()` and `interface_exists()` allow "not found, even after trying
+   to autoload" as a legitimate, normal use case. An autoloader that throws
+   exceptions renders `class_exists()` unusable, which is entirely unacceptable
+   from an interoperability standpoint. Autoloaders that wish to provide
+   additional debugging information in a class-not-found case should do so via
+   logging instead, either to a PSR-3 compatible logger or otherwise.
 
 Pros:
 
@@ -194,8 +194,8 @@ Cons:
 ### 4.3 Alternative: Split Up Autoloading And Transformation
 
 Beau Simensen and others suggested that the transformation algorithm might be
-split out from the autoloading proposal so that the transformation rules
-could be referenced by other proposals. After doing the work to separate them,
+split out from the autoloading proposal so that the transformation rules could
+be referenced by other proposals. After doing the work to separate them,
 followed by a poll and some discussion, the combined version (i.e.,
 transformation rules embedded in the autoloader proposal) was revealed as the
 preference.
@@ -221,9 +221,9 @@ consideration, written by Paul M. Jones and contributed to by many.
 
 ### Compatibility Note with PHP 5.3.2 and below
 
-PHP versions before 5.3.3 do not strip the leading namespace separator, so
-the responsibility to look out for this falls on the implementation. Failing
-to strip the leading namespace separator could lead to unexpected behavior.
+PHP versions before 5.3.3 do not strip the leading namespace separator, so the
+responsibility to look out for this falls on the implementation. Failing to
+strip the leading namespace separator could lead to unexpected behavior.
 
 ## 5. People
 
@@ -248,17 +248,20 @@ to strip the leading namespace separator could lead to unexpected behavior.
 
 ## 6. Votes
 
-- **Entrance Vote:** <https://groups.google.com/d/msg/php-fig/_LYBgfcEoFE/ZwFTvVTIl4AJ>
+- **Entrance Vote:**
+  <https://groups.google.com/d/msg/php-fig/_LYBgfcEoFE/ZwFTvVTIl4AJ>
 
 - **Acceptance Vote:**
 
-    - 1st attempt: <https://groups.google.com/forum/#!topic/php-fig/Ua46E344_Ls>,
-      presented prior to new workflow; aborted due to accidental proposal modification
+  - 1st attempt: <https://groups.google.com/forum/#!topic/php-fig/Ua46E344_Ls>,
+    presented prior to new workflow; aborted due to accidental proposal
+    modification
 
-    - 2nd attempt: <https://groups.google.com/forum/#!topic/php-fig/NWfyAeF7Psk>,
-      cancelled at the discretion of the sponsor <https://groups.google.com/forum/#!topic/php-fig/t4mW2TQF7iE>
+  - 2nd attempt: <https://groups.google.com/forum/#!topic/php-fig/NWfyAeF7Psk>,
+    cancelled at the discretion of the sponsor
+    <https://groups.google.com/forum/#!topic/php-fig/t4mW2TQF7iE>
 
-    - 3rd attempt: TBD
+  - 3rd attempt: TBD
 
 ## 7. Relevant Links
 

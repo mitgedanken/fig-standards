@@ -1,19 +1,19 @@
 # Coding Style Guide
 
-> **Deprecated** - As of 2019-08-10 PSR-2 has been marked as deprecated. [PSR-12] is now recommended
-as an alternative.
+> **Deprecated** - As of 2019-08-10 PSR-2 has been marked as deprecated.
+> [PSR-12] is now recommended as an alternative.
 
-[PSR-12]: http://www.php-fig.org/psr/psr-12/
+[psr-12]: http://www.php-fig.org/psr/psr-12/
 
 This guide extends and expands on [PSR-1], the basic coding standard.
 
-The intent of this guide is to reduce cognitive friction when scanning code
-from different authors. It does so by enumerating a shared set of rules and
+The intent of this guide is to reduce cognitive friction when scanning code from
+different authors. It does so by enumerating a shared set of rules and
 expectations about how to format PHP code.
 
 The style rules herein are derived from commonalities among the various member
-projects. When various authors collaborate across multiple projects, it helps
-to have one set of guidelines to be used among all those projects. Thus, the
+projects. When various authors collaborate across multiple projects, it helps to
+have one set of guidelines to be used among all those projects. Thus, the
 benefit of this guide is not in the rules themselves, but in the sharing of
 those rules.
 
@@ -21,9 +21,10 @@ The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
 "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be
 interpreted as described in [RFC 2119].
 
-[RFC 2119]: http://www.ietf.org/rfc/rfc2119.txt
-[PSR-0]: https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md
-[PSR-1]: https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-1-basic-coding-standard.md
+[rfc 2119]: http://www.ietf.org/rfc/rfc2119.txt
+[psr-0]: https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-0.md
+[psr-1]:
+  https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-1-basic-coding-standard.md
 
 ## 1. Overview
 
@@ -34,8 +35,8 @@ interpreted as described in [RFC 2119].
 - There MUST NOT be a hard limit on line length; the soft limit MUST be 120
   characters; lines SHOULD be 80 characters or less.
 
-- There MUST be one blank line after the `namespace` declaration, and there
-  MUST be one blank line after the block of `use` declarations.
+- There MUST be one blank line after the `namespace` declaration, and there MUST
+  be one blank line after the block of `use` declarations.
 
 - Opening braces for classes MUST go on the next line, and closing braces MUST
   go on the next line after the body.
@@ -47,8 +48,8 @@ interpreted as described in [RFC 2119].
   `final` MUST be declared before the visibility; `static` MUST be declared
   after the visibility.
 
-- Control structure keywords MUST have one space after them; method and
-  function calls MUST NOT.
+- Control structure keywords MUST have one space after them; method and function
+  calls MUST NOT.
 
 - Opening braces for control structures MUST go on the same line, and closing
   braces MUST go on the next line after the body.
@@ -60,7 +61,7 @@ interpreted as described in [RFC 2119].
 
 This example encompasses some of the rules below as a quick overview:
 
-~~~php
+```php
 <?php
 namespace Vendor\Package;
 
@@ -86,7 +87,7 @@ class Foo extends Bar implements FooInterface
         // method body
     }
 }
-~~~
+```
 
 ## 2. General
 
@@ -109,13 +110,13 @@ There MUST NOT be a hard limit on line length.
 The soft limit on line length MUST be 120 characters; automated style checkers
 MUST warn but MUST NOT error at the soft limit.
 
-Lines SHOULD NOT be longer than 80 characters; lines longer than that SHOULD
-be split into multiple subsequent lines of no more than 80 characters each.
+Lines SHOULD NOT be longer than 80 characters; lines longer than that SHOULD be
+split into multiple subsequent lines of no more than 80 characters each.
 
 There MUST NOT be trailing whitespace at the end of non-blank lines.
 
-Blank lines MAY be added to improve readability and to indicate related
-blocks of code.
+Blank lines MAY be added to improve readability and to indicate related blocks
+of code.
 
 There MUST NOT be more than one statement per line.
 
@@ -124,9 +125,8 @@ There MUST NOT be more than one statement per line.
 Code MUST use an indent of 4 spaces, and MUST NOT use tabs for indenting.
 
 > N.b.: Using only spaces, and not mixing spaces with tabs, helps to avoid
-> problems with diffs, patches, history, and annotations. The use of spaces
-> also makes it easy to insert fine-grained sub-indentation for inter-line
-> alignment.
+> problems with diffs, patches, history, and annotations. The use of spaces also
+> makes it easy to insert fine-grained sub-indentation for inter-line alignment.
 
 ### 2.5. Keywords and True/False/Null
 
@@ -140,8 +140,7 @@ The PHP constants `true`, `false`, and `null` MUST be in lower case.
 
 When present, there MUST be one blank line after the `namespace` declaration.
 
-When present, all `use` declarations MUST go after the `namespace`
-declaration.
+When present, all `use` declarations MUST go after the `namespace` declaration.
 
 There MUST be one `use` keyword per declaration.
 
@@ -149,7 +148,7 @@ There MUST be one blank line after the `use` block.
 
 For example:
 
-~~~php
+```php
 <?php
 namespace Vendor\Package;
 
@@ -159,7 +158,7 @@ use OtherVendor\OtherPackage\BazClass;
 
 // ... additional PHP code ...
 
-~~~
+```
 
 ## 4. Classes, Properties, and Methods
 
@@ -167,13 +166,13 @@ The term "class" refers to all classes, interfaces, and traits.
 
 ### 4.1. Extends and Implements
 
-The `extends` and `implements` keywords MUST be declared on the same line as
-the class name.
+The `extends` and `implements` keywords MUST be declared on the same line as the
+class name.
 
-The opening brace for the class MUST go on its own line; the closing brace
-for the class MUST go on the next line after the body.
+The opening brace for the class MUST go on its own line; the closing brace for
+the class MUST go on the next line after the body.
 
-~~~php
+```php
 <?php
 namespace Vendor\Package;
 
@@ -185,13 +184,13 @@ class ClassName extends ParentClass implements \ArrayAccess, \Countable
 {
     // constants, properties, methods
 }
-~~~
+```
 
-Lists of `implements` MAY be split across multiple lines, where each
-subsequent line is indented once. When doing so, the first item in the list
-MUST be on the next line, and there MUST be only one interface per line.
+Lists of `implements` MAY be split across multiple lines, where each subsequent
+line is indented once. When doing so, the first item in the list MUST be on the
+next line, and there MUST be only one interface per line.
 
-~~~php
+```php
 <?php
 namespace Vendor\Package;
 
@@ -206,7 +205,7 @@ class ClassName extends ParentClass implements
 {
     // constants, properties, methods
 }
-~~~
+```
 
 ### 4.2. Properties
 
@@ -221,7 +220,7 @@ protected or private visibility.
 
 A property declaration looks like the following.
 
-~~~php
+```php
 <?php
 namespace Vendor\Package;
 
@@ -229,7 +228,7 @@ class ClassName
 {
     public $foo = null;
 }
-~~~
+```
 
 ### 4.3. Methods
 
@@ -239,14 +238,14 @@ Method names SHOULD NOT be prefixed with a single underscore to indicate
 protected or private visibility.
 
 Method names MUST NOT be declared with a space after the method name. The
-opening brace MUST go on its own line, and the closing brace MUST go on the
-next line following the body. There MUST NOT be a space after the opening
+opening brace MUST go on its own line, and the closing brace MUST go on the next
+line following the body. There MUST NOT be a space after the opening
 parenthesis, and there MUST NOT be a space before the closing parenthesis.
 
 A method declaration looks like the following. Note the placement of
 parentheses, commas, spaces, and braces:
 
-~~~php
+```php
 <?php
 namespace Vendor\Package;
 
@@ -257,17 +256,16 @@ class ClassName
         // method body
     }
 }
-~~~
+```
 
 ### 4.4. Method Arguments
 
 In the argument list, there MUST NOT be a space before each comma, and there
 MUST be one space after each comma.
 
-Method arguments with default values MUST go at the end of the argument
-list.
+Method arguments with default values MUST go at the end of the argument list.
 
-~~~php
+```php
 <?php
 namespace Vendor\Package;
 
@@ -278,17 +276,17 @@ class ClassName
         // method body
     }
 }
-~~~
+```
 
-Argument lists MAY be split across multiple lines, where each subsequent line
-is indented once. When doing so, the first item in the list MUST be on the
-next line, and there MUST be only one argument per line.
+Argument lists MAY be split across multiple lines, where each subsequent line is
+indented once. When doing so, the first item in the list MUST be on the next
+line, and there MUST be only one argument per line.
 
 When the argument list is split across multiple lines, the closing parenthesis
 and opening brace MUST be placed together on their own line with one space
 between them.
 
-~~~php
+```php
 <?php
 namespace Vendor\Package;
 
@@ -302,7 +300,7 @@ class ClassName
         // method body
     }
 }
-~~~
+```
 
 ### 4.5. `abstract`, `final`, and `static`
 
@@ -312,7 +310,7 @@ visibility declaration.
 When present, the `static` declaration MUST come after the visibility
 declaration.
 
-~~~php
+```php
 <?php
 namespace Vendor\Package;
 
@@ -327,35 +325,35 @@ abstract class ClassName
         // method body
     }
 }
-~~~
+```
 
 ### 4.6. Method and Function Calls
 
 When making a method or function call, there MUST NOT be a space between the
 method or function name and the opening parenthesis, there MUST NOT be a space
-after the opening parenthesis, and there MUST NOT be a space before the
-closing parenthesis. In the argument list, there MUST NOT be a space before
-each comma, and there MUST be one space after each comma.
+after the opening parenthesis, and there MUST NOT be a space before the closing
+parenthesis. In the argument list, there MUST NOT be a space before each comma,
+and there MUST be one space after each comma.
 
-~~~php
+```php
 <?php
 bar();
 $foo->bar($arg1);
 Foo::bar($arg2, $arg3);
-~~~
+```
 
-Argument lists MAY be split across multiple lines, where each subsequent line
-is indented once. When doing so, the first item in the list MUST be on the
-next line, and there MUST be only one argument per line.
+Argument lists MAY be split across multiple lines, where each subsequent line is
+indented once. When doing so, the first item in the list MUST be on the next
+line, and there MUST be only one argument per line.
 
-~~~php
+```php
 <?php
 $foo->bar(
     $longArgument,
     $longerArgument,
     $muchLongerArgument
 );
-~~~
+```
 
 ## 5. Control Structures
 
@@ -364,14 +362,13 @@ The general style rules for control structures are as follows:
 - There MUST be one space after the control structure keyword
 - There MUST NOT be a space after the opening parenthesis
 - There MUST NOT be a space before the closing parenthesis
-- There MUST be one space between the closing parenthesis and the opening
-  brace
+- There MUST be one space between the closing parenthesis and the opening brace
 - The structure body MUST be indented once
 - The closing brace MUST be on the next line after the body
 
-The body of each structure MUST be enclosed by braces. This standardizes how
-the structures look, and reduces the likelihood of introducing errors as new
-lines get added to the body.
+The body of each structure MUST be enclosed by braces. This standardizes how the
+structures look, and reduces the likelihood of introducing errors as new lines
+get added to the body.
 
 ### 5.1. `if`, `elseif`, `else`
 
@@ -379,7 +376,7 @@ An `if` structure looks like the following. Note the placement of parentheses,
 spaces, and braces; and that `else` and `elseif` are on the same line as the
 closing brace from the earlier body.
 
-~~~php
+```php
 <?php
 if ($expr1) {
     // if body
@@ -388,7 +385,7 @@ if ($expr1) {
 } else {
     // else body;
 }
-~~~
+```
 
 The keyword `elseif` SHOULD be used instead of `else if` so that all control
 keywords look like single words.
@@ -396,12 +393,12 @@ keywords look like single words.
 ### 5.2. `switch`, `case`
 
 A `switch` structure looks like the following. Note the placement of
-parentheses, spaces, and braces. The `case` statement MUST be indented once
-from `switch`, and the `break` keyword (or other terminating keyword) MUST be
+parentheses, spaces, and braces. The `case` statement MUST be indented once from
+`switch`, and the `break` keyword (or other terminating keyword) MUST be
 indented at the same level as the `case` body. There MUST be a comment such as
 `// no break` when fall-through is intentional in a non-empty `case` body.
 
-~~~php
+```php
 <?php
 switch ($expr) {
     case 0:
@@ -419,60 +416,60 @@ switch ($expr) {
         echo 'Default case';
         break;
 }
-~~~
+```
 
 ### 5.3. `while`, `do while`
 
-A `while` statement looks like the following. Note the placement of
-parentheses, spaces, and braces.
+A `while` statement looks like the following. Note the placement of parentheses,
+spaces, and braces.
 
-~~~php
+```php
 <?php
 while ($expr) {
     // structure body
 }
-~~~
+```
 
 Similarly, a `do while` statement looks like the following. Note the placement
 of parentheses, spaces, and braces.
 
-~~~php
+```php
 <?php
 do {
     // structure body;
 } while ($expr);
-~~~
+```
 
 ### 5.4. `for`
 
 A `for` statement looks like the following. Note the placement of parentheses,
 spaces, and braces.
 
-~~~php
+```php
 <?php
 for ($i = 0; $i < 10; $i++) {
     // for body
 }
-~~~
+```
 
 ### 5.5. `foreach`
 
 A `foreach` statement looks like the following. Note the placement of
 parentheses, spaces, and braces.
 
-~~~php
+```php
 <?php
 foreach ($iterable as $key => $value) {
     // foreach body
 }
-~~~
+```
 
 ### 5.6. `try`, `catch`
 
-A `try catch` block looks like the following. Note the placement of
-parentheses, spaces, and braces.
+A `try catch` block looks like the following. Note the placement of parentheses,
+spaces, and braces.
 
-~~~php
+```php
 <?php
 try {
     // try body
@@ -481,30 +478,29 @@ try {
 } catch (OtherExceptionType $e) {
     // catch body
 }
-~~~
+```
 
 ## 6. Closures
 
-Closures MUST be declared with a space after the `function` keyword, and a
-space before and after the `use` keyword.
+Closures MUST be declared with a space after the `function` keyword, and a space
+before and after the `use` keyword.
 
-The opening brace MUST go on the same line, and the closing brace MUST go on
-the next line following the body.
+The opening brace MUST go on the same line, and the closing brace MUST go on the
+next line following the body.
 
-There MUST NOT be a space after the opening parenthesis of the argument list
-or variable list, and there MUST NOT be a space before the closing parenthesis
-of the argument list or variable list.
+There MUST NOT be a space after the opening parenthesis of the argument list or
+variable list, and there MUST NOT be a space before the closing parenthesis of
+the argument list or variable list.
 
 In the argument list and variable list, there MUST NOT be a space before each
 comma, and there MUST be one space after each comma.
 
-Closure arguments with default values MUST go at the end of the argument
-list.
+Closure arguments with default values MUST go at the end of the argument list.
 
 A closure declaration looks like the following. Note the placement of
 parentheses, commas, spaces, and braces:
 
-~~~php
+```php
 <?php
 $closureWithArgs = function ($arg1, $arg2) {
     // body
@@ -513,12 +509,11 @@ $closureWithArgs = function ($arg1, $arg2) {
 $closureWithArgsAndVars = function ($arg1, $arg2) use ($var1, $var2) {
     // body
 };
-~~~
+```
 
-Argument lists and variable lists MAY be split across multiple lines, where
-each subsequent line is indented once. When doing so, the first item in the
-list MUST be on the next line, and there MUST be only one argument or variable
-per line.
+Argument lists and variable lists MAY be split across multiple lines, where each
+subsequent line is indented once. When doing so, the first item in the list MUST
+be on the next line, and there MUST be only one argument or variable per line.
 
 When the ending list (whether of arguments or variables) is split across
 multiple lines, the closing parenthesis and opening brace MUST be placed
@@ -527,7 +522,7 @@ together on their own line with one space between them.
 The following are examples of closures with and without argument lists and
 variable lists split across multiple lines.
 
-~~~php
+```php
 <?php
 $longArgs_noVars = function (
     $longArgument,
@@ -572,12 +567,12 @@ $shortArgs_longVars = function ($arg) use (
 ) {
     // body
 };
-~~~
+```
 
-Note that the formatting rules also apply when the closure is used directly
-in a function or method call as an argument.
+Note that the formatting rules also apply when the closure is used directly in a
+function or method call as an argument.
 
-~~~php
+```php
 <?php
 $foo->bar(
     $arg1,
@@ -586,7 +581,7 @@ $foo->bar(
     },
     $arg3
 );
-~~~
+```
 
 ## 7. Conclusion
 
@@ -613,7 +608,7 @@ other elements of style and practice.
 ## Appendix A. Survey
 
 In writing this style guide, the group took a survey of member projects to
-determine common practices.  The survey is retained herein for posterity.
+determine common practices. The survey is retained herein for posterity.
 
 ### A.1. Survey Data
 
@@ -643,68 +638,65 @@ determine common practices.  The survey is retained herein for posterity.
 
 ### A.2. Survey Legend
 
-`indent_type`:
-The type of indenting. `tab` = "Use a tab", `2` or `4` = "number of spaces"
+`indent_type`: The type of indenting. `tab` = "Use a tab", `2` or `4` = "number
+of spaces"
 
-`line_length_limit_soft`:
-The "soft" line length limit, in characters. `?` = not discernible or no response, `no` means no limit.
+`line_length_limit_soft`: The "soft" line length limit, in characters. `?` = not
+discernible or no response, `no` means no limit.
 
-`line_length_limit_hard`:
-The "hard" line length limit, in characters. `?` = not discernible or no response, `no` means no limit.
+`line_length_limit_hard`: The "hard" line length limit, in characters. `?` = not
+discernible or no response, `no` means no limit.
 
-`class_names`:
-How classes are named. `lower` = lowercase only, `lower_under` = lowercase with underscore separators, `studly` = StudlyCase.
+`class_names`: How classes are named. `lower` = lowercase only, `lower_under` =
+lowercase with underscore separators, `studly` = StudlyCase.
 
-`class_brace_line`:
-Does the opening brace for a class go on the `same` line as the class keyword, or on the `next` line after it?
+`class_brace_line`: Does the opening brace for a class go on the `same` line as
+the class keyword, or on the `next` line after it?
 
-`constant_names`:
-How are class constants named? `upper` = Uppercase with underscore separators.
+`constant_names`: How are class constants named? `upper` = Uppercase with
+underscore separators.
 
-`true_false_null`:
-Are the `true`, `false`, and `null` keywords spelled as all `lower` case, or all `upper` case?
+`true_false_null`: Are the `true`, `false`, and `null` keywords spelled as all
+`lower` case, or all `upper` case?
 
-`method_names`:
-How are methods named? `camel` = `camelCase`, `lower_under` = lowercase with underscore separators.
+`method_names`: How are methods named? `camel` = `camelCase`, `lower_under` =
+lowercase with underscore separators.
 
-`method_brace_line`:
-Does the opening brace for a method go on the `same` line as the method name, or on the `next` line?
+`method_brace_line`: Does the opening brace for a method go on the `same` line
+as the method name, or on the `next` line?
 
-`control_brace_line`:
-Does the opening brace for a control structure go on the `same` line, or on the `next` line?
+`control_brace_line`: Does the opening brace for a control structure go on the
+`same` line, or on the `next` line?
 
-`control_space_after`:
-Is there a space after the control structure keyword?
+`control_space_after`: Is there a space after the control structure keyword?
 
-`always_use_control_braces`:
-Do control structures always use braces?
+`always_use_control_braces`: Do control structures always use braces?
 
-`else_elseif_line`:
-When using `else` or `elseif`, does it go on the `same` line as the previous closing brace, or does it go on the `next` line?
+`else_elseif_line`: When using `else` or `elseif`, does it go on the `same` line
+as the previous closing brace, or does it go on the `next` line?
 
-`case_break_indent_from_switch`:
-How many times are `case` and `break` indented from an opening `switch` statement?
+`case_break_indent_from_switch`: How many times are `case` and `break` indented
+from an opening `switch` statement?
 
-`function_space_after`:
-Do function calls have a space after the function name and before the opening parenthesis?
+`function_space_after`: Do function calls have a space after the function name
+and before the opening parenthesis?
 
-`closing_php_tag_required`:
-In files containing only PHP, is the closing `?>` tag required?
+`closing_php_tag_required`: In files containing only PHP, is the closing `?>`
+tag required?
 
-`line_endings`:
-What type of line ending is used?
+`line_endings`: What type of line ending is used?
 
-`static_or_visibility_first`:
-When declaring a method, does `static` come first, or does the visibility come first?
+`static_or_visibility_first`: When declaring a method, does `static` come first,
+or does the visibility come first?
 
-`control_space_parens`:
-In a control structure expression, is there a space after the opening parenthesis and a space before the closing parenthesis? `yes` = `if ( $expr )`, `no` = `if ($expr)`.
+`control_space_parens`: In a control structure expression, is there a space
+after the opening parenthesis and a space before the closing parenthesis? `yes`
+= `if ( $expr )`, `no` = `if ($expr)`.
 
-`blank_line_after_php`:
-Is there a blank line after the opening PHP tag?
+`blank_line_after_php`: Is there a blank line after the opening PHP tag?
 
-`class_method_control_brace`:
-A summary of what line the opening braces go on for classes, methods, and control structures.
+`class_method_control_brace`: A summary of what line the opening braces go on
+for classes, methods, and control structures.
 
 ### A.3. Survey Results
 

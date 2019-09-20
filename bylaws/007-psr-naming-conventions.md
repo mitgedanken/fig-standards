@@ -1,5 +1,4 @@
-Naming conventions for code released by PHP FIG
-===============================================
+# Naming conventions for code released by PHP FIG
 
 1. Interfaces MUST be suffixed by `Interface`: e.g. `Psr\Foo\BarInterface`.
 2. Abstract classes MUST be prefixed by `Abstract`: e.g. `Psr\Foo\AbstractBar`.
@@ -17,5 +16,5 @@ Naming conventions for code released by PHP FIG
    tag of the `psr/<package>` package, and an equal version bump of the
    implementation being required.
 8. Special lightweight utility packages MAY be produced alongside PSRs and
-   interfaces and be maintained and updated after the PSR has been accepted. These
-   MUST be under the vendor namespace `Fig`.
+   interfaces and be maintained and updated after the PSR has been accepted.
+   These MUST be under the vendor namespace `Fig`.

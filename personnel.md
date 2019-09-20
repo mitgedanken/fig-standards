@@ -4,19 +4,20 @@
 
 ### Secretaries
 
-| Name                                  | Term                    |
-|---------------------------------------|-------------------------|
-| Ian Littman ([@iansltx])              | 2018-08-26 - 2020-01-31 |
-| Alessandro Lai ([@AlessandroLai])     | 2017-11-12 - 2020-08-31 |
-| Asmir Mustafic ([@goetas_asmir])      | 2019-05-26 - 2021-05-30 |
+| Name                              | Term                    |
+| --------------------------------- | ----------------------- |
+| Ian Littman ([@iansltx])          | 2018-08-26 - 2020-01-31 |
+| Alessandro Lai ([@AlessandroLai]) | 2017-11-12 - 2020-08-31 |
+| Asmir Mustafic ([@goetas_asmir])  | 2019-05-26 - 2021-05-30 |
 
-Feel free to contact the secretaries at info AT php-fig.org. For more information on the secretaries' role, see the [bylaws](http://www.php-fig.org/bylaws/mission-and-structure/#secretaries).
-
+Feel free to contact the secretaries at info AT php-fig.org. For more
+information on the secretaries' role, see the
+[bylaws](http://www.php-fig.org/bylaws/mission-and-structure/#secretaries).
 
 ### Core Committee Members
 
 | Name                                  | Term                    |
-|---------------------------------------|-------------------------|
+| ------------------------------------- | ----------------------- |
 | Beau Simensen ([@beausimensen])       | 2016-12-24 - 2020-08-31 |
 | Larry Garfield ([@Crell])             | 2016-12-24 - 2021-05-30 |
 | Matthew Weier O'Phinney ([@mwop])     | 2016-12-24 - 2021-05-30 |
@@ -30,56 +31,54 @@ Feel free to contact the secretaries at info AT php-fig.org. For more informatio
 | Woody Gilk ([@shadowhand])            | 2019-05-26 - 2021-05-30 |
 | Matteo Beccati ([@mbeccati])          | 2019-05-26 - 2021-05-30 |
 
-
 ### Member Projects
 
-| Project                           | Representative                        |
-|-----------------------------------|---------------------------------------|
-| [CakePHP]                         | Larry Masters ([@PhpNut])             |
-| [Composer]                        | Jordi Boggiano ([@seldaek])           |
-| [concrete5]                       | Korvin Szanto ([@korvinszanto])       |
-| [Contao Open Source CMS]          | Leo Feyer ([@leofeyer])               |
-| [Drupal]                          | *vacant*                              |
-| [eZ Publish]                      | Andre Romcke ([@andrerom])            |
-| [Horde]                           | Jan Schneider ([@yunosh])             |
-| [IBM i Toolkit]                   | Adam Culp ([@adamculp])               |
-| [Icicle]                          | Aaron Piotrowski ([@trowski2002])     |
-| [Jackalope]                       | Lukas Kahwe Smith ([@lsmith])         |
-| [Joomla]                          | Robert Deutz ([@rdeutz])              |
-| [Lithium]                         | Nate Abele ([@nateabele])             |
-| [Magento]                         | Anton Kril ([@AntonKril])             |
-| [PEAR]                            | Chuck Burgess ([@ashnazg])            |
-| [Phalcon]                         | Nikolaos Dimopoulos ([@phalconphp])   |
-| [Phergie]                         | Joe Ferguson ([@joepferguson])        |
-| [Phing]                           | Siad Ardroumli          |
-| [phpBB]                           | Marc Alexander ([@marc1706])          |
-| [phpDocumentor]                   | Mike van Riel ([@mvriel])             |
-| [PHPixie]                         | Roman Tsiupa ([@dracony_gimp])        |
-| [Pimcore]                         | Bernhard Rusch ([@bernhard_rusch])    |
-| [PPI Framework]                   | Paul Dragoonis ([@dr4goonis])         |
-| [PrestaShop]                      | Rémi Gaillard ([@xtaz07])             |
-| [PyroCMS]                         | Ryan Thompson ([@RyanThePyro])        |
-| [ReactPHP]                        | Cees-Jan Kiewiet ([@WyriHaximus])     |
-| [Revive Adserver]                 | Matteo Beccati ([@mbeccati])          |
-| [Sculpin]                         | Chris Tankersley ([@dragonmantank])   |
-| [Slim]                            | Jason Coward ([@drumshaman])          |
-| [SilverStripe]                    | Damian Mooyman                        |
-| [Stash]                           | Robert Hafner ([@tedivm])             |
-| [Stormpath PHP SDK]               | Brian Retterer ([@bretterer])         |
-| [SugarCRM]                        | Andreas Sandberg ([@yellowandy])      |
-| [Flow] and [Neos]                 | Karsten Dambekalns ([@kdambekalns])   |
-| [Wikibase] and [Semantic Media]   | Jeroen De Dauw ([@JeroenDeDauw])      |
-| [Yii framework]                   | Alexander Makarov ([@sam_dark])       |
-| [Zend Framework]                  | Matthew Weier O'Phinney ([@mwop])     |
-| [Zikula]                          | Shefik Macauley ([@shefik_info])      |
-
+| Project                         | Representative                      |
+| ------------------------------- | ----------------------------------- |
+| [CakePHP]                       | Larry Masters ([@PhpNut])           |
+| [Composer]                      | Jordi Boggiano ([@seldaek])         |
+| [concrete5]                     | Korvin Szanto ([@korvinszanto])     |
+| [Contao Open Source CMS]        | Leo Feyer ([@leofeyer])             |
+| [Drupal]                        | _vacant_                            |
+| [eZ Publish]                    | Andre Romcke ([@andrerom])          |
+| [Horde]                         | Jan Schneider ([@yunosh])           |
+| [IBM i Toolkit]                 | Adam Culp ([@adamculp])             |
+| [Icicle]                        | Aaron Piotrowski ([@trowski2002])   |
+| [Jackalope]                     | Lukas Kahwe Smith ([@lsmith])       |
+| [Joomla]                        | Robert Deutz ([@rdeutz])            |
+| [Lithium]                       | Nate Abele ([@nateabele])           |
+| [Magento]                       | Anton Kril ([@AntonKril])           |
+| [PEAR]                          | Chuck Burgess ([@ashnazg])          |
+| [Phalcon]                       | Nikolaos Dimopoulos ([@phalconphp]) |
+| [Phergie]                       | Joe Ferguson ([@joepferguson])      |
+| [Phing]                         | Siad Ardroumli                      |
+| [phpBB]                         | Marc Alexander ([@marc1706])        |
+| [phpDocumentor]                 | Mike van Riel ([@mvriel])           |
+| [PHPixie]                       | Roman Tsiupa ([@dracony_gimp])      |
+| [Pimcore]                       | Bernhard Rusch ([@bernhard_rusch])  |
+| [PPI Framework]                 | Paul Dragoonis ([@dr4goonis])       |
+| [PrestaShop]                    | Rémi Gaillard ([@xtaz07])           |
+| [PyroCMS]                       | Ryan Thompson ([@RyanThePyro])      |
+| [ReactPHP]                      | Cees-Jan Kiewiet ([@WyriHaximus])   |
+| [Revive Adserver]               | Matteo Beccati ([@mbeccati])        |
+| [Sculpin]                       | Chris Tankersley ([@dragonmantank]) |
+| [Slim]                          | Jason Coward ([@drumshaman])        |
+| [SilverStripe]                  | Damian Mooyman                      |
+| [Stash]                         | Robert Hafner ([@tedivm])           |
+| [Stormpath PHP SDK]             | Brian Retterer ([@bretterer])       |
+| [SugarCRM]                      | Andreas Sandberg ([@yellowandy])    |
+| [Flow] and [Neos]               | Karsten Dambekalns ([@kdambekalns]) |
+| [Wikibase] and [Semantic Media] | Jeroen De Dauw ([@JeroenDeDauw])    |
+| [Yii framework]                 | Alexander Makarov ([@sam_dark])     |
+| [Zend Framework]                | Matthew Weier O'Phinney ([@mwop])   |
+| [Zikula]                        | Shefik Macauley ([@shefik_info])    |
 
 ## Past
 
 ### Former Secretaries
 
 | Name                                  | Term                    |
-|---------------------------------------|-------------------------|
+| ------------------------------------- | ----------------------- |
 | Gary Hockin ([@GeeH])                 | 2016-01-31 - 2016-01-31 |
 | Joe Ferguson ([@joepferguson])        | 2016-01-31 - 2016-06-29 |
 | Samantha Quiñones ([@ieatkillerbees]) | 2016-02-28 - 2016-12-24 |
@@ -88,43 +87,41 @@ Feel free to contact the secretaries at info AT php-fig.org. For more informatio
 | Mark Railton ([@railto])              | 2018-01-28 - 2018-06-05 |
 | Margret Staples ([@dead_lugosi])      | 2017-11-12 - 2019-05-31 |
 
-
 ### Former Core Committee Members
 
-| Name                                  | Term                    |
-|---------------------------------------|-------------------------|
-| Graham Hoefer ([@greydnls])           | 2016-12-24 - 2018-01-31 |
-| Gary Hockin ([@GeeH])                 | 2016-12-24 - 2018-04-04 |
-| Lukas Kahwe Smith ([@lsmith])         | 2016-12-24 - 2019-05-26 |
-| Sara Golemon ([@SaraMG])              | 2016-12-24 - 2019-05-26 |
-
+| Name                          | Term                    |
+| ----------------------------- | ----------------------- |
+| Graham Hoefer ([@greydnls])   | 2016-12-24 - 2018-01-31 |
+| Gary Hockin ([@GeeH])         | 2016-12-24 - 2018-04-04 |
+| Lukas Kahwe Smith ([@lsmith]) | 2016-12-24 - 2019-05-26 |
+| Sara Golemon ([@SaraMG])      | 2016-12-24 - 2019-05-26 |
 
 ### Former Member Projects
 
-| Project                                   | Representative                        |
-|-------------------------------------------|---------------------------------------|
-| [Aura] and [Solar]                        | Paul M. Jones ([@pmjones])            |
-| [Assetic]                                 | Kris Wallsmith ([@kriswallsmith])     |
-| [Agavi]                                   | David Zülke ([@dzuelke])              |
-| [Doctrine]                                | Guilherme Blanco ([@guilhermeblanco]) |
-| [Guzzle]                                  | Jeremy Lindblom ([@jeremeamia])       |
-| [Laravel]                                 | Taylor Otwell ([@taylorotwell])       |
-| [The League of Extraordinary Packages]    | Graham Hoefer ([@greydnls])           |
-| [Propel]                                  | William Durand ([@couac])             |
-| [sabre/dav]                               | Evert Pot ([@evertp])                 |
-| [Symfony]                                 | Fabien Potencier ([@fabpot])          |	
+| Project                                | Representative                        |
+| -------------------------------------- | ------------------------------------- |
+| [Aura] and [Solar]                     | Paul M. Jones ([@pmjones])            |
+| [Assetic]                              | Kris Wallsmith ([@kriswallsmith])     |
+| [Agavi]                                | David Zülke ([@dzuelke])              |
+| [Doctrine]                             | Guilherme Blanco ([@guilhermeblanco]) |
+| [Guzzle]                               | Jeremy Lindblom ([@jeremeamia])       |
+| [Laravel]                              | Taylor Otwell ([@taylorotwell])       |
+| [The League of Extraordinary Packages] | Graham Hoefer ([@greydnls])           |
+| [Propel]                               | William Durand ([@couac])             |
+| [sabre/dav]                            | Evert Pot ([@evertp])                 |
+| [Symfony]                              | Fabien Potencier ([@fabpot])          |
 
 [@adamculp]: https://twitter.com/adamculp
-[@AlessandroLai]: https://twitter.com/AlessandroLai
+[@alessandrolai]: https://twitter.com/AlessandroLai
 [@ambassadorawsum]: https://twitter.com/ambassadorawsum
 [@andrerom]: https://twitter.com/andrerom
-[@AntonKril]: https://twitter.com/AntonKril
+[@antonkril]: https://twitter.com/AntonKril
 [@ashnazg]: https://twitter.com/ashnazg
 [@beausimensen]: https://twitter.com/beausimensen
 [@bernhard_rusch]: https://twitter.com/bernhard_rusch
 [@bretterer]: https://twitter.com/bretterer
 [@couac]: https://twitter.com/couac
-[@Crell]: https://twitter.com/Crell
+[@crell]: https://twitter.com/Crell
 [@dead_lugosi]: https://twitter.com/dead_lugosi
 [@dr4goonis]: https://twitter.com/dr4goonis
 [@dracony_gimp]: https://twitter.com/dracony_gimp
@@ -133,13 +130,13 @@ Feel free to contact the secretaries at info AT php-fig.org. For more informatio
 [@dzuelke]: https://twitter.com/dzuelke
 [@evertp]: https://twitter.com/evertp
 [@fabpot]: https://twitter.com/fabpot
-[@GeeH]: https://twitter.com/GeeH
+[@geeh]: https://twitter.com/GeeH
 [@goetas_asmir]: https://twitter.com/goetas_asmir
 [@greydnls]: https://twitter.com/greydnls
 [@guilhermeblanco]: https://twitter.com/guilhermeblanco
 [@ieatkillerbees]: https://twitter.com/ieatkillerbees
 [@jeremeamia]: https://twitter.com/jeremeamia
-[@JeroenDeDauw]: https://twitter.com/JeroenDeDauw
+[@jeroendedauw]: https://twitter.com/JeroenDeDauw
 [@joepferguson]: https://twitter.com/joepferguson
 [@kdambekalns]: https://twitter.com/kdambekalns
 [@korvinszanto]: https://twitter.com/korvinszanto
@@ -155,13 +152,13 @@ Feel free to contact the secretaries at info AT php-fig.org. For more informatio
 [@mwop]: https://twitter.com/mwop
 [@nateabele]: https://twitter.com/nateabele
 [@phalconphp]: https://twitter.com/phalconphp
-[@PhpNut]: https://twitter.com/PhpNut
+[@phpnut]: https://twitter.com/PhpNut
 [@pmjones]: https://twitter.com/pmjones
 [@railto]: https://twitter.com/railto
 [@rdeutz]: https://twitter.com/rdeutz
-[@RyanThePyro]: https://twitter.com/RyanThePyro
+[@ryanthepyro]: https://twitter.com/RyanThePyro
 [@sam_dark]: https://twitter.com/sam_dark
-[@SaraMG]: https://twitter.com/SaraMG
+[@saramg]: https://twitter.com/SaraMG
 [@seldaek]: https://twitter.com/seldaek
 [@shadowhand]: https://twitter.com/shadowhand
 [@shefik_info]: https://twitter.com/shefik_info
@@ -169,58 +166,57 @@ Feel free to contact the secretaries at info AT php-fig.org. For more informatio
 [@taylorotwell]: https://twitter.com/taylorotwell
 [@tedivm]: https://twitter.com/tedivm
 [@trowski2002]: https://twitter.com/trowski2002
-[@WyriHaximus]: https://twitter.com/WyriHaximus
+[@wyrihaximus]: https://twitter.com/WyriHaximus
 [@xtaz07]: https://twitter.com/xtaz07
 [@yellowandy]: https://twitter.com/yellowandy
 [@yunosh]: https://twitter.com/yunosh
-
-[Agavi]: http://www.agavi.org
-[Assetic]: https://github.com/kriswallsmith/assetic
-[Aura]: http://auraphp.github.com
-[CakePHP]: http://cakephp.org
-[Composer]: http://getcomposer.org
+[agavi]: http://www.agavi.org
+[assetic]: https://github.com/kriswallsmith/assetic
+[aura]: http://auraphp.github.com
+[cakephp]: http://cakephp.org
+[composer]: http://getcomposer.org
 [concrete5]: http://www.concrete5.org
-[Contao Open Source CMS]: https://contao.org
-[Doctrine]: http://www.doctrine-project.org
-[Drupal]: http://drupal.org
-[eZ Publish]: http://ez.no
-[Flow]: https://flow.neos.io/
-[Guzzle]: http://guzzlephp.org
-[Horde]: http://www.horde.org
-[IBM i Toolkit]: https://github.com/zendtech/IbmiToolkit
-[Icicle]: https://icicle.io
-[Jackalope]: http://jackalope.github.com
-[Joomla]: http://www.joomla.org
-[Laravel]: http://laravel.com
-[Lithium]: http://li3.me
-[Magento]: http://magento.com
-[Neos]: https://neos.io
-[PEAR]: http://pear.php.net
-[Phalcon]: http://www.phalconphp.com
-[Phergie]: https://www.phergie.org
-[Phing]: http://www.phing.info
-[phpBB]: http://www.phpbb.com
-[phpDocumentor]: http://www.phpdoc.org
-[PHPixie]: http://phpixie.com
-[Pimcore]: http://www.pimcore.org
-[PPI Framework]: https://github.com/ppi
-[PrestaShop]: http://www.prestashop.com
-[Propel]: http://www.propelorm.org
-[PyroCMS]: http://www.pyrocms.com
-[ReactPHP]: http://reactphp.org
-[Revive Adserver]: http://www.revive-adserver.com
+[contao open source cms]: https://contao.org
+[doctrine]: http://www.doctrine-project.org
+[drupal]: http://drupal.org
+[ez publish]: http://ez.no
+[flow]: https://flow.neos.io/
+[guzzle]: http://guzzlephp.org
+[horde]: http://www.horde.org
+[ibm i toolkit]: https://github.com/zendtech/IbmiToolkit
+[icicle]: https://icicle.io
+[jackalope]: http://jackalope.github.com
+[joomla]: http://www.joomla.org
+[laravel]: http://laravel.com
+[lithium]: http://li3.me
+[magento]: http://magento.com
+[neos]: https://neos.io
+[pear]: http://pear.php.net
+[phalcon]: http://www.phalconphp.com
+[phergie]: https://www.phergie.org
+[phing]: http://www.phing.info
+[phpbb]: http://www.phpbb.com
+[phpdocumentor]: http://www.phpdoc.org
+[phpixie]: http://phpixie.com
+[pimcore]: http://www.pimcore.org
+[ppi framework]: https://github.com/ppi
+[prestashop]: http://www.prestashop.com
+[propel]: http://www.propelorm.org
+[pyrocms]: http://www.pyrocms.com
+[reactphp]: http://reactphp.org
+[revive adserver]: http://www.revive-adserver.com
 [sabre/dav]: http://sabre.io
-[Sculpin]: https://sculpin.io
-[Semantic Media]: http://www.semantic-mediawiki.org
-[SilverStripe]: http://www.silverstripe.org
-[Slim]: http://www.slimframework.com
-[Solar]: http://solarphp.com
-[Stash]: http://www.tedivm.com/stash
-[Stormpath PHP SDK]: http://www.stormpath.com
-[SugarCRM]: http://developers.sugarcrm.com/wordpress
-[Symfony]: http://www.symfony.com
-[The League of Extraordinary Packages]: http://thephpleague.com
-[Wikibase]: http://www.wikiba.se
-[Yii framework]: http://www.yiiframework.com
-[Zend Framework]: http://framework.zend.com
-[Zikula]: https://github.com/zikula
+[sculpin]: https://sculpin.io
+[semantic media]: http://www.semantic-mediawiki.org
+[silverstripe]: http://www.silverstripe.org
+[slim]: http://www.slimframework.com
+[solar]: http://solarphp.com
+[stash]: http://www.tedivm.com/stash
+[stormpath php sdk]: http://www.stormpath.com
+[sugarcrm]: http://developers.sugarcrm.com/wordpress
+[symfony]: http://www.symfony.com
+[the league of extraordinary packages]: http://thephpleague.com
+[wikibase]: http://www.wikiba.se
+[yii framework]: http://www.yiiframework.com
+[zend framework]: http://framework.zend.com
+[zikula]: https://github.com/zikula
